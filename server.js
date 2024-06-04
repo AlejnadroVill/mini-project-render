@@ -16,7 +16,7 @@ app.use('/api', api);
 
 app.use(express.static('public'));
 // 1st TODO
-app.get('/404',(req,res)=>
+app.get('*',(req,res)=>
   res.sendFile(path.join(__dirname, '/public/pages/404.html'))
 );
 // GET Route for homepage
