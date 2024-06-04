@@ -9,14 +9,16 @@ const app = express();
 
 // Import custom middleware, "cLog"
 app.use(clog);
-
 // Middleware for parsing JSON and urlencoded form data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/api', api);
 
 app.use(express.static('public'));
-
+// 1st TODO
+app.get('/404',(req,res)=>
+  res.sendFile(path.join(__dirname, '/public/pages/404.html'))
+);
 // GET Route for homepage
 app.get('/', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/index.html'))
